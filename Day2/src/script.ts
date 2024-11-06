@@ -1,3 +1,5 @@
+// video: 3
+
 //Example: 1
 
 // let playerName = "Muhammad ibn Zain";
@@ -35,5 +37,60 @@
 // let mixed = ['ahmad', 34, false]; // here type can be string, number, boolean
 // mixed.push('abdullah') // no error generate
 // mixed.push(23) // no error generate
+
+
+// Example: 5 object
+
+// let person = {
+//     name: "abdullah",
+//     age: 25,
+//     isMarried: false
+// }
+
+// person.age = "hello"; // this will generate error because of individually auto define of typescript (perosn.age:number)
+
+// person.country = "bangladesh"; // this will also gives error because typescirpt define the schema when defining the object
+
+
+// video: 4
+
+// Example: 1
+// exclusitely defining the variable type when defining 
+
+// let num:number; // defining number type of num
+// let personName:string; // defining string type of personName
+
+// //  Example: 2 for array
+
+// let arr : string[]=[];
+
+// arr.push('hello'); // no error
+// arr.push(45); // gives error
+
+// Example: 3 variable defining
+
+// let a : string | number; // can be string or number
+
+// let b : (string | number) [] = []; // array element can be string or number
+
+// let c : object;
+
+// let d : {
+//     name: string;
+//     age: number;
+//     isMarried: boolean;
+//     country: string;
+// }; // specific defining of object where all property defined
+
+
+
+
+
+
+
+
+
+
+
 
 
