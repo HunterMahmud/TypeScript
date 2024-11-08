@@ -35,3 +35,9 @@ let greet = (Name, age, isMarried = false) => {
 };
 // console.log(greet('Abdullah', "fda", false)); // this will gives error
 console.log(greet('Abdullah', 23, true)); // this will gives error
+/// genetic type
+function identity(arg) {
+    return arg;
+}
+console.log(identity(10));
+console.log(identity('hello'));

@@ -52,3 +52,12 @@ let greet = (Name:string, age:number, isMarried:boolean=false): string => { // d
 // console.log(greet('Abdullah', "fda", false)); // this will gives error
 console.log(greet('Abdullah', 23, true)); // this will gives error
 
+
+/// genetic type
+function identity<Type>(arg: Type): Type {
+    return arg;
+  }
+
+  console.log(identity<number>(10));
+  console.log(identity<string>('hello'));
+  
