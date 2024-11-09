@@ -35,9 +35,14 @@ let greet = (Name, age, isMarried = false) => {
 };
 // console.log(greet('Abdullah', "fda", false)); // this will gives error
 console.log(greet('Abdullah', 23, true)); // this will gives error
-/// genetic type
+/// genetic type in typescript normal function
 function identity(arg) {
     return arg;
 }
 console.log(identity(10));
 console.log(identity('hello'));
+// arrow fucntion 
+const Pass = (pass) => {
+    return pass;
+};
+console.log(Pass('abdullah'));

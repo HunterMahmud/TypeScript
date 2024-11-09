@@ -53,11 +53,20 @@ let greet = (Name:string, age:number, isMarried:boolean=false): string => { // d
 console.log(greet('Abdullah', 23, true)); // this will gives error
 
 
-/// genetic type
-function identity<Type>(arg: Type): Type {
+/// genetic type in typescript normal function
+function identity<Type>(arg: Type): Type  {
     return arg;
   }
 
-  console.log(identity<number>(10));
-  console.log(identity<string>('hello'));
-  
+console.log(identity<number>(10));
+console.log(identity<string>('hello'));
+
+// arrow fucntion 
+const Pass = <AnyType>(pass:AnyType):AnyType => {
+    return pass;
+}  
+
+console.log(Pass<string>('abdullah'));
+
+
+
