@@ -58,7 +58,108 @@ console.log(tanzim.getAge());
 
 
 
+// -------------------------------- video: 13 type generic
 
+// here we can normally use this const makeId = <Type>(userInfo: Type) => { // here no validation
+// const makeId = <Type extends object>(userInfo: Type) => { // object validation but format is not defined
+// we can also use this to make it more validate such as below
+
+const makeId = <Type extends {
+    name: string;
+    age: number;
+}>(userInfo: Type) => {
+    
+    const id = Math.floor(Math.random() * 100);
+    return {...userInfo, id};
+}
+
+const userInfo = {
+    name: "mahmud",
+    age: 26
+}
+
+const user = "mahmud";
+
+const userWithId = makeId(userInfo);
+
+console.log(userWithId.id);
+console.log(userWithId.age);
+console.log(userWithId.name);
+
+
+// generic in interface this can be happened
+
+// interface ApiResponse{
+//     status: number;
+//     isAvailable: boolean;
+//     data: object;
+// }
+
+// const apiResponse1 : ApiResponse = {
+//     status: 200, 
+//     isAvailable: true,
+//     data:{
+//         productId: 2,
+//         details: 'here is the details about the product'
+//     }
+// } 
+
+
+// here is another example specify the data we have to rechieve the type after apiResponse and then we can set it to the data like below:
+
+// interface ApiResponse<Type>{ // this Type will recieve the object from below
+//     status: number;
+//     isAvailable: boolean;
+//     data: Type;
+// }
+
+// const apiResponse1 : ApiResponse <{ // here we can say just <object>
+//     productId: number;
+//     details: string
+// }> = { // we have to send the type from here
+//     status: 200, 
+//     isAvailable: true,
+//     data:{
+//         productId: 2,
+//         details: 'here is the details about the product'
+//     }
+// } 
+
+
+
+// console.log(apiResponse1?.data?.productId);
+
+
+
+// video: 14 enum type
+
+
+enum ResType {SUCCESS, FORBIDDEN, UNAUTHENTICATED, RESTRICTED};
+
+
+
+
+interface ApiResponse<Type>{ 
+    status: ResType;
+    isAvailable: boolean;
+    data: Type;
+}
+
+const apiResponse1 : ApiResponse <{ 
+    productId: number;
+    details: string
+}> = { 
+    status: ResType.FORBIDDEN, // this will print 1, if we say ResType.SUCCESS it will be 0 like this. 
+    isAvailable: true,
+    data:{
+        productId: 2,
+        details: 'here is the details about the product'
+    }
+} 
+
+
+
+console.log(apiResponse1?.data?.productId);
 
 
 
