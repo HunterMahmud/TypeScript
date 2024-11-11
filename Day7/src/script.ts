@@ -163,4 +163,18 @@ console.log(apiResponse1?.data?.productId);
 
 
 
+// video 15: touples
 
+let a = [1, "hello", {t: 2}];
+a[0] = "hello" // no errors because of array can be any of three types (number or string or object)
+
+// if we want position by position strict then we have to use touples
+
+let b: [number, string, object] = [1, 'bangladesh', {t2: 7}];
+
+// b[0] = "hello" // this is not accepted 
+
+
+// done full playlist 
+
+// i will move forward to practice on the project
