@@ -29,7 +29,7 @@ const func: Func = (...rest) => {
     let sum: number = 0;
     
     for(let i of rest){
-        sum += i;        
+        sum += i;
     }
     return sum;
 }
