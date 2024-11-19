@@ -63,6 +63,5 @@ const img = <HTMLImageElement> document.getElementById("myImg");
 btn.onclick = () => {
   img.src = "https://i.ibb.co.com/nMsM6WZ/interview.jpg";
   alert("image added");
-  
 }
 
