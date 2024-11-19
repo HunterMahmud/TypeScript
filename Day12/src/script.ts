@@ -1,48 +1,52 @@
-// video: 1:08:51
+// video: 1:19:59
 
-// access modifier in classes (public, private, protected)
-// public: accessalbe in anywhere
-// private: only accessable inside the class itself
-// protected: accessable in parent and child classes but can't access from outside
+// inheritance and set and get
 
-class Player  {
-    private height;
-    weight;
+class Player {
+  readonly id: number;
+  constructor(
+    private readonly height: number,
+    public weight: number,
+    protected readonly isMarried: boolean
+  ) {
+    this.height = height;
+    this.weight = weight;
+    this.isMarried = isMarried;
+    this.id = Math.floor(Math.random() * 100);
+  }
+  get getInfo(): number {
+    return this.id;
+  }
 
-    constructor (height: number,weight:number,protected isMarried: boolean) { // you can directly initialize here then you don't need to initialize before (protedted isMarried: boolean)
-        this.height = height;
-        this.weight = weight;
-        this.isMarried = isMarried;
-    }
-    getValue = () => { // this function is allowing the get the value of private property
-        return this.height;
-    }
+  set setWeight(val: number) {
+    this.weight = val;
+  }
 }
 
 class Player2 extends Player {
-    
-    constructor(height:number, weight: number, isMarried: boolean, public play: boolean){
-        super(height, weight, isMarried);
-        this.play = play;
-    }
-    getMarriedStatus = () => {
-        return this.isMarried;
-    }
-    // getHeight = () => {
-    //     return this.height; // this access will gives error because of private property
-    // }
+  // inheritance
+  constructor(
+    height: number,
+    weight: number,
+    isMarried: boolean,
+    private sayHello: boolean
+  ) {
+    super(height, weight, isMarried);
+    this.sayHello = sayHello;
+  }
+  getIsMarried = () => {
+    return this.isMarried;
+  };
+  callHello = () => {
+    return this.sayHello;
+  };
 }
 
-const jayed = new Player(23, 24, true);
-// console.log(jayed.height); // we can access private property .. it gives us error
-console.log(jayed.getValue()); // we can access using function call 
+const Zayed = new Player(24, 24, false);
 
-console.log(jayed.weight);
+// console.log(Zayed.getInfo); // getter function don't need to call
 
-const salman = new Player2(154, 74, false, true);
+console.log(Zayed.weight);
+Zayed.setWeight = 57; // don't need to call and pass the parameter
 
-console.log(salman.getMarriedStatus());
-console.log(salman.weight);
-
-
-
+console.log(Zayed.weight);

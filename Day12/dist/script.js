@@ -1,34 +1,39 @@
 "use strict";
-// video: 1:08:51
-// access modifier in classes (public, private, protected)
-// public: accessalbe in anywhere
-// private: only accessable inside the class itself
-// protected: accessable in parent and child classes but can't access from outside
+// video: 1:19:59
+// inheritance and set and get
 class Player {
     constructor(height, weight, isMarried) {
-        this.isMarried = isMarried;
-        this.getValue = () => {
-            return this.height;
-        };
         this.height = height;
         this.weight = weight;
         this.isMarried = isMarried;
+        this.height = height;
+        this.weight = weight;
+        this.isMarried = isMarried;
+        this.id = Math.floor(Math.random() * 100);
+    }
+    get getInfo() {
+        return this.id;
+    }
+    set setWeight(val) {
+        this.weight = val;
     }
 }
 class Player2 extends Player {
-    constructor(height, weight, isMarried, play) {
+    // inheritance
+    constructor(height, weight, isMarried, sayHello) {
         super(height, weight, isMarried);
-        this.play = play;
-        this.getMarriedStatus = () => {
+        this.sayHello = sayHello;
+        this.getIsMarried = () => {
             return this.isMarried;
         };
-        this.play = play;
+        this.callHello = () => {
+            return this.sayHello;
+        };
+        this.sayHello = sayHello;
     }
 }
-const jayed = new Player(23, 24, true);
-// console.log(jayed.height); // we can access private property .. it gives us error
-console.log(jayed.getValue()); // we can access using function call 
-console.log(jayed.weight);
-const salman = new Player2(154, 74, false, true);
-console.log(salman.getMarriedStatus());
-console.log(salman.weight);
+const Zayed = new Player(24, 24, false);
+// console.log(Zayed.getInfo); // getter function don't need to call
+console.log(Zayed.weight);
+Zayed.setWeight = 57; // don't need to call and pass the parameter
+console.log(Zayed.weight);
